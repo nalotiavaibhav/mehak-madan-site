@@ -1,44 +1,64 @@
-# Mehak Madan — Website (Home A)
+# Mehak Madan — Website
 
-Production implementation of the **Home A** design from the Claude Design handoff
-(`Mehak Madan — Comedian Website`). Single-page marketing site for a corporate
-stand-up comedian & lifestyle manager.
+A full multi-page site for Mehak Madan, Bengaluru corporate stand-up comedian
+and lifestyle manager. Built from the Claude Design "Home A" handoff, then
+elevated into a premium, custom design system with real content and imagery.
 
-## Structure
+## Design direction
+
+**"Warm Editorial Playbill · Spotlight."** Warm cream paper, ink charcoal,
+terracotta + marigold accents; Instrument Serif display, Albert Sans body,
+Archivo labels. The memorable anchor is a warm **stage spotlight** that forms
+each hero and recurs as a moving beam — most notably the home page's
+*"one spotlight, two jobs"* Performer/Manager toggle, and the Comedy page's
+interactive **Rundown** show-builder.
+
+## Pages
 
 ```
-site/
-├── index.html      # the full page — inline CSS + JS, no build step
-├── assets/         # local images (hero, gallery, about, watch thumbnails)
-└── README.md
+index.html      Home — spotlight hero, proof, client strip, the Performer/Manager
+                pivot (spotlight swings between them), topics, gallery, about &
+                watch teasers, booking.
+comedy.html     The Show — dark hero, the 60-min set + show rider, 8 topics,
+                the interactive "Rundown" event-builder, why-it-works, proof
+                (clients + venues), watch clips, booking.
+lifestyle.html  The Manager — calm executive-trust register, services taxonomy,
+                how-it-works, who-it's-for, consultation form.
+about.html      About — story, stats, journey timeline, venues.
+watch.html      Watch — viral reels grid, viral posts, YouTube.
+assets/         site.css (design system), site.js (behaviour), lib/ (images).
 ```
 
 ## Run locally
 
-It's a static site — open `index.html` directly, or serve it:
-
 ```bash
 cd site
-python3 -m http.server 8000
-# → http://localhost:8000
+python3 -m http.server 8000   # → http://localhost:8000
 ```
 
-## Notes / decisions
+## Engineering notes
 
-- **Faithful to Home A.** Layout, type scale, colour tokens and copy match the
-  prototype exactly. The A/B/C variant switcher and Claude Design tooling
-  attributes (`data-screen-label`, `data-comment-anchor`) were dropped — those
-  are design-review artifacts, not part of the shipped page.
-- **External dependencies:** Google Fonts (Instrument Serif / Albert Sans /
-  Archivo) and the Lenis smooth-scroll library via CDN. Client logos load from
-  Wikimedia with a styled text fallback (`onerror`) if a request fails.
-- **Progressive enhancement:** smooth scroll and the logo marquee are JS
-  enhancements; the page is fully readable and navigable without JS, and both
-  respect `prefers-reduced-motion`.
-- **Images optimised:** `corporate-group.jpg` and `hosting-aisle.jpg` were
-  resized from 4032px/~6.5MB originals to 1800px/~0.6MB for web.
-- **Contact form** is front-end only (shows a confirmation message). Wire the
-  `<form>` to an email service or backend endpoint to receive real enquiries.
-- **Accessibility:** skip link, labelled form fields with autocomplete,
-  `aria-hidden` on decorative SVGs, and landmark elements.
-```
+- **One design system, one visual language** across all five pages
+  (`assets/site.css`), per the client UX brief. Strict type scale, shared
+  header/footer, purpose-built (not reused) hero per page.
+- **Progressive enhancement.** Everything works with JS disabled: content is
+  visible by default, the pivot/rundown degrade to static, and a reveal
+  *failsafe* guarantees above-the-fold content is never left invisible
+  (the brief explicitly warns against fragile scroll-triggered blank states).
+  All motion honours `prefers-reduced-motion`.
+- **Fixed the broken logo wall.** The old hotlinked Wikimedia SVGs are replaced
+  with a clean, consistent monochrome **text wordmark** strip — no more
+  mismatched/broken logos.
+- **Real HTML content**, never baked into images (dates, clients, topics, tour
+  list are all selectable, accessible text).
+- **Images** curated from `highrespics/` and optimised into `assets/lib/`.
+- **Accessibility:** skip links, labelled + autocompleted forms, ARIA tabs on
+  the pivot, `aria-pressed` on rundown cards, keyboard support, focus rings,
+  landmark elements.
+
+## Still to wire for production
+
+- The contact forms are front-end only (inline confirmation). Point each
+  `<form>` at an email service / endpoint to receive enquiries.
+- Reel thumbnails currently reuse performance photos; swap for real video
+  posters when available. Links go to the live Instagram/YouTube.
