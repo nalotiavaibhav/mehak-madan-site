@@ -20,19 +20,31 @@
     });
   }
 
-  /* ---- smooth scroll (Lenis if present) ---- */
-  var lenis = null;
-  if (window.Lenis && !reduced) {
-    lenis = new Lenis({ autoRaf: true });
+  /* ---- smooth in-page anchors ----
+     JS-driven rAF tween using instant steps. CSS `scroll-behavior:smooth` and
+     `scrollIntoView({behavior:'smooth'})` are unreliable across environments;
+     this works everywhere and honours prefers-reduced-motion. */
+  function smoothScrollTo(el) {
+    var destY = Math.max(0, window.scrollY + el.getBoundingClientRect().top - 78);
+    var startY = window.scrollY;
+    if (reduced) { window.scrollTo(0, destY); return; }
+    try { window.scrollTo({ top: destY, behavior: 'smooth' }); }
+    catch (e) { window.scrollTo(0, destY); return; }
+    // Fallback: if the smooth scroll never started (e.g. rAF throttled), jump.
+    setTimeout(function () {
+      if (Math.abs(window.scrollY - startY) < 4 && Math.abs(window.scrollY - destY) > 4) {
+        window.scrollTo(0, destY);
+      }
+    }, 320);
   }
   document.querySelectorAll('a[href^="#"]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var id = a.getAttribute('href');
-      if (id.length > 1 && document.querySelector(id)) {
+      var el = null;
+      try { el = id.length > 1 ? document.querySelector(id) : null; } catch (err) { el = null; }
+      if (el) {
         e.preventDefault();
-        var el = document.querySelector(id);
-        if (lenis) lenis.scrollTo(el, { offset: -72, duration: 1.1 });
-        else el.scrollIntoView({ behavior: reduced ? 'auto' : 'smooth' });
+        smoothScrollTo(el);
         history.replaceState(null, '', id);
       }
     });
@@ -129,10 +141,16 @@
         railList.appendChild(li);
       });
       if (railEmpty) railEmpty.style.display = chosen.length ? 'none' : '';
-      if (railBtn) {
-        railBtn.style.display = chosen.length ? '' : 'none';
-        railBtn.href = '#book?rundown=' + encodeURIComponent(chosen.join(' · '));
-      }
+      if (railBtn) railBtn.style.display = chosen.length ? '' : 'none';
+    }
+    if (railBtn) {
+      railBtn.setAttribute('href', '#book');
+      railBtn.addEventListener('click', function () {
+        var box = document.getElementById('b-msg');
+        if (box && chosen.length) box.value = 'My running order: ' + chosen.join(' · ');
+        var sel = document.getElementById('b-type');
+        if (sel) sel.value = 'Corporate stand-up show';
+      });
     }
     cards.forEach(function (card) {
       var title = card.getAttribute('data-title');
