@@ -47,6 +47,13 @@
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
     revealEls.forEach(function (el) { io.observe(el); });
+    // failsafe: anything already in (or near) the viewport at load reveals immediately,
+    // so above-the-fold content is never left invisible.
+    requestAnimationFrame(function () {
+      revealEls.forEach(function (el) {
+        if (el.getBoundingClientRect().top < window.innerHeight * 0.92) el.classList.add('in');
+      });
+    });
   } else {
     revealEls.forEach(function (el) { el.classList.add('in'); });
   }
@@ -95,4 +102,60 @@
       });
     });
   }
+
+  /* ---- Comedy "Rundown" show-builder (progressive enhancement) ---- */
+  var rundown = document.querySelector('[data-rundown]');
+  if (rundown) {
+    var cards = rundown.querySelectorAll('.format-card');
+    var glow = rundown.querySelector('.format-glow');
+    var railList = rundown.querySelector('[data-rail]');
+    var railEmpty = rundown.querySelector('[data-rail-empty]');
+    var railBtn = rundown.querySelector('[data-rail-btn]');
+    var grid = rundown.querySelector('.format-grid');
+    var chosen = [];
+
+    function place(card) {
+      if (!glow || !grid) return;
+      var g = grid.getBoundingClientRect(), c = card.getBoundingClientRect();
+      glow.style.transform = 'translate(' + (c.left - g.left) + 'px,' + (c.top - g.top + c.height / 2 - 56) + 'px)';
+      rundown.classList.add('armed');
+    }
+    function render() {
+      if (!railList) return;
+      railList.innerHTML = '';
+      chosen.forEach(function (t, i) {
+        var li = document.createElement('li');
+        li.innerHTML = '<span class="rn">' + ('0' + (i + 1)) + '</span><span>' + t + '</span>';
+        railList.appendChild(li);
+      });
+      if (railEmpty) railEmpty.style.display = chosen.length ? 'none' : '';
+      if (railBtn) {
+        railBtn.style.display = chosen.length ? '' : 'none';
+        railBtn.href = '#book?rundown=' + encodeURIComponent(chosen.join(' · '));
+      }
+    }
+    cards.forEach(function (card) {
+      var title = card.getAttribute('data-title');
+      card.addEventListener('click', function () {
+        var on = card.classList.toggle('on');
+        card.setAttribute('aria-pressed', on ? 'true' : 'false');
+        if (on) { chosen.push(title); place(card); }
+        else { chosen = chosen.filter(function (t) { return t !== title; }); }
+        render();
+      });
+      card.addEventListener('mouseenter', function () { place(card); });
+    });
+    render();
+  }
+
+  /* ---- prefill booking message from a rundown link ---- */
+  (function () {
+    var m = /[#&?]rundown=([^&]+)/.exec(location.hash);
+    var box = document.getElementById('b-msg');
+    if (m && box) {
+      box.value = 'My running order: ' + decodeURIComponent(m[1].replace(/\+/g, ' '));
+      var sel = document.getElementById('b-type');
+      if (sel) sel.value = 'Corporate stand-up show';
+    }
+  })();
 })();
