@@ -599,3 +599,31 @@ html.js .hero-photo img{animation:slowSettle 1.6s var(--ease) both}
   .duo-grid,.watch-grid{grid-template-columns:1fr}
   .value-list{grid-template-columns:1fr}
 }
+
+/* ---------- FAQ (native <details>, no JS, crawler & AI friendly) ---------- */
+.faq{max-width:840px;margin:0 auto}
+.faq-item{border-top:1px solid var(--line)}
+.faq-item:last-child{border-bottom:1px solid var(--line)}
+.faq-item summary{cursor:pointer;list-style:none;padding:22px 4px;font-family:var(--serif);
+  font-size:clamp(19px,1.9vw,25px);color:var(--ink);display:flex;justify-content:space-between;
+  gap:20px;align-items:baseline;transition:color .2s}
+.faq-item summary:hover{color:var(--accent-deep)}
+.faq-item summary::-webkit-details-marker{display:none}
+.faq-item summary::after{content:"+";color:var(--accent);font-family:var(--sans);font-weight:400;
+  font-size:26px;line-height:1;flex:none;transition:transform .3s var(--ease)}
+.faq-item[open] summary::after{transform:rotate(45deg)}
+.faq-item .a{padding:0 4px 24px;color:var(--ink-soft);max-width:72ch;font-size:16px;line-height:1.7}
+.faq-item .a p{margin-bottom:10px}
+.faq-item .a a{font-weight:600}
+
+/* GEO quotable lead sentence in the dark clients strip */
+.clients-lead{max-width:820px;margin:26px auto 0;padding:0 20px;text-align:center;
+  color:rgba(250,245,238,.82);font-size:16px;line-height:1.7}
+.clients-lead b{color:#f8f2e8;font-weight:400;font-family:var(--serif);font-size:19px}
+
+/* About "key facts" — dual-purpose human skim + machine-readable entity block */
+.keyfacts{margin-top:40px;border-top:1px solid var(--line)}
+.keyfacts>div{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:14px 4px;border-bottom:1px solid var(--line)}
+.keyfacts dt{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.keyfacts dd{font-size:16px;color:var(--ink)}
+@media (max-width:600px){.keyfacts>div{grid-template-columns:1fr;gap:2px}}
