@@ -1,4 +1,19 @@
+# Mehak Madan — https://mehakmadan.in
 User-agent: *
+Allow: /
+
+# AI search crawlers explicitly welcomed (for AI Overviews / ChatGPT / Perplexity / Claude visibility)
+User-agent: GPTBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Google-Extended
 Allow: /
 
 Sitemap: https://mehakmadan.in/sitemap.xml

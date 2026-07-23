@@ -48,15 +48,28 @@
       "url": "https://mehakmadan.in/",
       "image": "https://mehakmadan.in/assets/lib/p05.jpg",
       "priceRange": "$$",
-      "areaServed": "IN",
+      "areaServed": [
+        { "@type": "City", "name": "Bengaluru" },
+        { "@type": "Country", "name": "India" }
+      ],
       "provider": { "@id": "https://mehakmadan.in/#mehak" },
-      "address": { "@type": "PostalAddress", "addressLocality": "Bengaluru", "addressCountry": "IN" },
+      "address": { "@type": "PostalAddress", "addressLocality": "Bengaluru", "addressRegion": "Karnataka", "addressCountry": "IN" },
+      "geo": { "@type": "GeoCoordinates", "latitude": 12.9716, "longitude": 77.5946 },
+      "knowsLanguage": ["en", "hi"],
       "makesOffer": [
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Corporate stand-up comedy show" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Hosting & anchoring" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Keynote & learning sessions" } },
         { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Lifestyle & concierge management" } }
       ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://mehakmadan.in/#website",
+      "url": "https://mehakmadan.in/",
+      "name": "Mehak Madan",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://mehakmadan.in/#mehak" }
     }
   ]
 }
