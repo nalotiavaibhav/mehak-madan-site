@@ -203,6 +203,141 @@
     });
   });
 
+
+  /* ---- share: deep-linkable cards + native share sheet ----
+     Web pages cannot detect screenshots (no browser exposes that — it is a
+     native-app-only API), so instead every video card and major section gets a
+     real share affordance: navigator.share opens the OS sheet (WhatsApp,
+     Instagram, anything installed), with clipboard copy as the fallback.
+     Copying selected text also appends the source link. */
+  (function () {
+    var SITE = 'https://mehakmadan.in';
+
+    function pageBase() {
+      // Always share the canonical live URL, never localhost/file paths.
+      var path = location.pathname.replace(/\/index\.html$/, '/');
+      return SITE + (path === '/' ? '/' : path);
+    }
+    function slugify(t) {
+      return (t || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '').slice(0, 40);
+    }
+
+    /* toast */
+    var toast;
+    function say(msg) {
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.className = 'toast';
+        toast.setAttribute('role', 'status');
+        toast.setAttribute('aria-live', 'polite');
+        document.body.appendChild(toast);
+      }
+      toast.textContent = msg;
+      toast.classList.add('on');
+      clearTimeout(toast._t);
+      toast._t = setTimeout(function () { toast.classList.remove('on'); }, 2600);
+    }
+
+    function legacyCopy(text) {
+      return new Promise(function (res, rej) {
+        var ta = document.createElement('textarea');
+        ta.value = text; ta.setAttribute('readonly', '');
+        ta.style.cssText = 'position:fixed;top:-1000px;opacity:0';
+        document.body.appendChild(ta); ta.select();
+        var ok = false;
+        try { ok = document.execCommand('copy'); } catch (e) { ok = false; }
+        document.body.removeChild(ta);
+        ok ? res() : rej(new Error('copy failed'));
+      });
+    }
+    function copy(text) {
+      // The async API needs a secure context and user activation; if it refuses
+      // for any reason, fall through to the old execCommand path rather than
+      // telling the visitor it failed.
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        return navigator.clipboard.writeText(text)
+          .catch(function () { return legacyCopy(text); });
+      }
+      return legacyCopy(text);
+    }
+
+    function share(title, url) {
+      if (navigator.share) {
+        navigator.share({ title: title, text: title, url: url })
+          .catch(function () { /* user dismissed the sheet — say nothing */ });
+        return;
+      }
+      copy(url).then(function () { say('Link copied — paste it anywhere'); })
+               .catch(function () { say('Could not copy. The link is ' + url); });
+    }
+
+    function btn(label, cls) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = cls;
+      b.setAttribute('aria-label', label);
+      b.title = label;
+      b.innerHTML = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M18 16.1c-.76 0-1.44.3-1.96.77L8.91 12.7c.05-.23.09-.46.09-.7s-.04-.47-.09-.7l7.05-4.11c.54.5 1.25.81 2.04.81a3 3 0 1 0-3-3c0 .24.04.47.09.7L8.04 9.81A3 3 0 1 0 6 15c.79 0 1.5-.31 2.04-.81l7.12 4.16c-.05.21-.08.43-.08.65a2.92 2.92 0 1 0 2.92-2.9z"/></svg>';
+      return b;
+    }
+
+    /* 1. video cards */
+    document.querySelectorAll('.wcard').forEach(function (card, i) {
+      var titleEl = card.querySelector('.wmeta b');
+      var title = titleEl ? titleEl.textContent.trim() : 'Mehak Madan';
+      var id = slugify(title) || ('clip-' + (i + 1));
+      var wrap = document.createElement('div');
+      wrap.className = 'shareable';
+      wrap.id = id;
+      card.parentNode.insertBefore(wrap, card);
+      wrap.appendChild(card);
+
+      var b = btn('Share “' + title + '”', 'share-btn');
+      b.addEventListener('click', function (e) {
+        e.preventDefault(); e.stopPropagation();
+        share('Mehak Madan — ' + title, pageBase() + '#' + id);
+      });
+      wrap.appendChild(b);
+    });
+
+    /* 2. major sections */
+    document.querySelectorAll('section[id] .section-head, section[id] .booking-grid > .reveal:first-child')
+      .forEach(function (head) {
+        var sec = head.closest('section[id]');
+        if (!sec || sec.querySelector('.share-sec')) return;
+        var h = head.querySelector('h2');
+        var title = h ? h.textContent.trim().replace(/\s+/g, ' ') : document.title;
+        var b = btn('Share this section', 'share-sec');
+        b.appendChild(document.createTextNode('Share'));
+        b.addEventListener('click', function () {
+          share('Mehak Madan — ' + title, pageBase() + '#' + sec.id);
+        });
+        head.appendChild(b);
+      });
+
+    /* 3. copying text carries the source link with it */
+    document.addEventListener('copy', function (e) {
+      try {
+        var sel = String(window.getSelection());
+        if (sel.trim().length < 40) return;           // short copies stay clean
+        if (!e.clipboardData) return;
+        e.clipboardData.setData('text/plain', sel + '\n\n— Mehak Madan, ' + pageBase());
+        e.preventDefault();
+      } catch (err) { /* leave the native copy alone */ }
+    });
+
+    /* 4. arriving on a deep link highlights the item */
+    if (location.hash.length > 1) {
+      try {
+        var t = document.querySelector(location.hash);
+        if (t && t.classList.contains('shareable')) {
+          t.classList.add('flash');
+          setTimeout(function () { t.classList.remove('flash'); }, 2400);
+        }
+      } catch (err) {}
+    }
+  })();
+
   /* ---- prefill booking message from a rundown link ---- */
   (function () {
     var m = /[#&?]rundown=([^&]+)/.exec(location.hash);

@@ -251,6 +251,37 @@ footer.site .spot-field::before{--spot-soft:rgba(230,180,92,.10)}
 .wcard:hover .wplay{background:rgba(230,180,92,.95);transform:scale(1.06)}
 .wplay svg{width:18px;height:18px;fill:var(--marigold);margin-left:3px;transition:fill .25s}
 .wcard:hover .wplay svg{fill:#241d16}
+
+/* ---------- share ---------- */
+.shareable{position:relative;display:flex}
+.shareable>.wcard{width:100%}
+.shareable.flash>.wcard{border-color:var(--marigold);box-shadow:0 0 0 3px rgba(230,180,92,.28)}
+.share-btn{position:absolute;top:10px;right:10px;z-index:3;width:38px;height:38px;border-radius:50%;
+  display:grid;place-items:center;cursor:pointer;padding:0;
+  background:rgba(20,14,8,.72);border:1px solid rgba(230,180,92,.5);
+  -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px);
+  opacity:0;transform:translateY(-4px);transition:opacity .25s,transform .25s,background .25s}
+.shareable:hover .share-btn,.share-btn:focus-visible{opacity:1;transform:translateY(0)}
+.share-btn:hover{background:rgba(230,180,92,.95)}
+.share-btn svg{width:16px;height:16px;fill:var(--marigold);transition:fill .25s}
+.share-btn:hover svg{fill:#241d16}
+@media (hover:none){.share-btn{opacity:1;transform:none}}
+
+.share-sec{display:inline-flex;align-items:center;gap:7px;margin-top:14px;cursor:pointer;
+  font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  padding:8px 14px;border-radius:100px;background:transparent;color:var(--ink-soft);
+  border:1px solid var(--line);transition:border-color .25s,color .25s,background .25s}
+.share-sec:hover{border-color:var(--accent);color:var(--ink)}
+.share-sec svg{width:13px;height:13px;fill:currentColor}
+.stage .share-sec,.booking .share-sec{color:#b8a98f;border-color:rgba(255,255,255,.18)}
+.stage .share-sec:hover,.booking .share-sec:hover{color:#f8f2e8;border-color:var(--marigold)}
+
+.toast{position:fixed;left:50%;bottom:26px;z-index:200;transform:translateX(-50%) translateY(14px);
+  opacity:0;pointer-events:none;transition:opacity .3s,transform .3s var(--ease);
+  background:var(--panel);color:#f8f2e8;font-size:14px;padding:13px 20px;border-radius:100px;
+  border:1px solid rgba(230,180,92,.4);box-shadow:0 18px 40px -18px rgba(0,0,0,.6);max-width:90vw}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+@media (prefers-reduced-motion:reduce){.share-btn,.toast{transition:none}}
 .wmeta{padding:18px 20px 20px;display:flex;flex-direction:column;gap:6px}
 .wmeta .num{font-family:var(--serif);font-style:italic;font-size:14px;color:var(--marigold)}
 .wmeta b{font-family:var(--serif);font-weight:400;font-size:22px}
@@ -277,6 +308,14 @@ footer.site .spot-field::before{--spot-soft:rgba(230,180,92,.10)}
 .form-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
 .form-note.is-error{color:#a8341f;font-weight:500}
 .book-form button[disabled]{opacity:.6;cursor:progress}
+.direct{display:flex;flex-direction:column;align-items:flex-start;gap:14px;justify-content:center}
+.direct h3{font-family:var(--serif);font-size:clamp(26px,3vw,36px);line-height:1.1;margin:0}
+.direct h3 em{color:var(--accent);font-style:italic}
+.direct p{color:var(--ink-soft);font-size:15.5px;margin:0;max-width:46ch}
+.direct .btn{width:100%;justify-content:center;margin-top:4px}
+.direct .direct-addr{font-size:14px}
+.direct .direct-addr a{color:var(--ink);text-decoration:underline;text-underline-offset:2px;word-break:break-all}
+.direct .form-note{text-align:left;margin-top:2px}
 
 /* ---------- social ---------- */
 .social{display:flex;gap:12px}
