@@ -269,20 +269,25 @@
         <a aria-label="YouTube" href="https://www.youtube.com/@mehakmadan" target="_blank" rel="noopener"><svg viewBox="0 0 24 24"><path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.3 31.3 0 0 0 0 12a31.3 31.3 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.3 31.3 0 0 0 24 12a31.3 31.3 0 0 0-.5-5.8zM9.6 15.6V8.4L15.8 12l-6.2 3.6z"/></svg></a>
       </div>
     </div>
-    <form class="book-form reveal" data-d="1" onsubmit="event.preventDefault();this.querySelector('.form-note').textContent='Thank you — your brief has landed. Mehak will reply within two working days.';this.querySelector('button').textContent='Sent ✓';">
+    <form class="book-form reveal" data-d="1" data-book-form data-success="Thank you — your brief has landed. Mehak will reply within two working days." action="https://formsubmit.co/comedyrecordingsmehak@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New show enquiry — mehakmadan.in (comedy)"/>
+      <input type="hidden" name="_template" value="table"/>
+      <input type="hidden" name="_captcha" value="false"/>
+      <input type="hidden" name="_next" value="https://mehakmadan.in/thanks.html"/>
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"/>
       <div class="frow">
-        <div class="field"><label for="b-name">Your name</label><input id="b-name" type="text" autocomplete="name" placeholder="Priya Sharma" required/></div>
-        <div class="field"><label for="b-email">Work email</label><input id="b-email" type="email" autocomplete="email" placeholder="priya@acme.com" required/></div>
+        <div class="field"><label for="b-name">Your name</label><input id="b-name" name="name" type="text" autocomplete="name" placeholder="Priya Sharma" required/></div>
+        <div class="field"><label for="b-email">Work email</label><input id="b-email" name="email" type="email" autocomplete="email" placeholder="priya@acme.com" required/></div>
       </div>
       <div class="frow">
-        <div class="field"><label for="b-org">Organisation</label><input id="b-org" type="text" autocomplete="organization" placeholder="Acme Corp"/></div>
+        <div class="field"><label for="b-org">Organisation</label><input id="b-org" name="org" type="text" autocomplete="organization" placeholder="Acme Corp"/></div>
         <div class="field"><label for="b-type">What do you need?</label>
-          <select id="b-type"><option>Corporate stand-up show</option><option>Hosting / anchoring</option><option>Keynote or learning session</option><option>Panel moderation</option><option>Something custom</option></select>
+          <select id="b-type" name="need"><option>Corporate stand-up show</option><option>Hosting / anchoring</option><option>Keynote or learning session</option><option>Panel moderation</option><option>Something custom</option></select>
         </div>
       </div>
-      <div class="frow"><div class="field full"><label for="b-msg">Anything we should know?</label><textarea id="b-msg" placeholder="City, date, audience size, occasion…"></textarea></div></div>
+      <div class="frow"><div class="field full"><label for="b-msg">Anything we should know?</label><textarea id="b-msg" name="message" placeholder="City, date, audience size, occasion…"></textarea></div></div>
       <button class="btn btn-dark" type="submit">Send the brief</button>
-      <p class="form-note">Prefer a direct message? Mehak is on LinkedIn and Instagram.</p>
+      <p class="form-note">Prefer email? <a href="mailto:comedyrecordingsmehak@gmail.com">comedyrecordingsmehak@gmail.com</a> — or find Mehak on LinkedIn and Instagram.</p>
     </form>
   </div>
 </section>
@@ -301,7 +306,7 @@
       <a href="comedy.html">The Show</a><a href="lifestyle.html">The Manager</a>
       <a href="watch.html">Watch</a><a href="about.html">About</a><a href="#book">Book</a>
     </nav>
-    <small>© 2026 Mehak Madan · Bengaluru, India</small>
+    <small>© 2026 Mehak Madan · Bengaluru, India · <a href="mailto:comedyrecordingsmehak@gmail.com" style="color:inherit">comedyrecordingsmehak@gmail.com</a></small>
   </div>
 </footer>
 

@@ -274,6 +274,9 @@ footer.site .spot-field::before{--spot-soft:rgba(230,180,92,.10)}
 .field textarea{resize:vertical;min-height:120px;height:auto}
 .book-form .btn{width:100%;justify-content:center;margin-top:6px}
 .form-note{font-size:13px;color:var(--ink-soft);text-align:center;margin-top:14px}
+.form-note a{color:inherit;text-decoration:underline;text-underline-offset:2px}
+.form-note.is-error{color:#a8341f;font-weight:500}
+.book-form button[disabled]{opacity:.6;cursor:progress}
 
 /* ---------- social ---------- */
 .social{display:flex;gap:12px}

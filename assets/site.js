@@ -166,6 +166,43 @@
     render();
   }
 
+
+  /* ---- booking forms: real submission ----
+     Progressive enhancement. Without this file the form still POSTs natively to
+     FormSubmit and lands on thanks.html. With it, we submit in the background so
+     the visitor stays put — and we only ever claim success on a real 2xx. */
+  document.querySelectorAll('form[data-book-form]').forEach(function (form) {
+    var note = form.querySelector('.form-note');
+    var btn = form.querySelector('button[type="submit"]');
+    var mailto = '<a href="mailto:comedyrecordingsmehak@gmail.com">comedyrecordingsmehak@gmail.com</a>';
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var endpoint = form.getAttribute('action').replace('formsubmit.co/', 'formsubmit.co/ajax/');
+      var btnText = btn ? btn.textContent : '';
+      if (btn) { btn.disabled = true; btn.textContent = 'Sending…'; }
+      if (note) { note.classList.remove('is-error'); note.textContent = 'Sending…'; }
+
+      fetch(endpoint, { method: 'POST', headers: { 'Accept': 'application/json' }, body: new FormData(form) })
+        .then(function (r) { if (!r.ok) throw new Error(r.status); return r.json(); })
+        .then(function (data) {
+          if (data && String(data.success) === 'false') throw new Error(data.message || 'rejected');
+          form.reset();
+          if (btn) btn.textContent = 'Sent ✓';
+          if (note) note.textContent = form.getAttribute('data-success') ||
+            'Thank you — your note has landed. Mehak will reply within two working days.';
+        })
+        .catch(function () {
+          // Never pretend it sent. Give the visitor a route that always works.
+          if (btn) { btn.disabled = false; btn.textContent = btnText; }
+          if (note) {
+            note.classList.add('is-error');
+            note.innerHTML = 'That didn\'t send — sorry. Please email ' + mailto + ' directly and it\'ll reach Mehak.';
+          }
+        });
+    });
+  });
+
   /* ---- prefill booking message from a rundown link ---- */
   (function () {
     var m = /[#&?]rundown=([^&]+)/.exec(location.hash);

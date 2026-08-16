@@ -154,18 +154,23 @@
         <li>No rotating team, no repeating yourself</li>
       </ul>
     </div>
-    <form class="book-form reveal" data-d="1" onsubmit="event.preventDefault();this.querySelector('.form-note').textContent='Thank you — your note has landed. Mehak will reply personally within two working days.';this.querySelector('button').textContent='Sent ✓';">
+    <form class="book-form reveal" data-d="1" data-book-form data-success="Thank you — your note has landed. Mehak will reply personally within two working days." action="https://formsubmit.co/comedyrecordingsmehak@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="New consultation request — mehakmadan.in (lifestyle)"/>
+      <input type="hidden" name="_template" value="table"/>
+      <input type="hidden" name="_captcha" value="false"/>
+      <input type="hidden" name="_next" value="https://mehakmadan.in/thanks.html"/>
+      <input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none"/>
       <div class="frow">
-        <div class="field"><label for="l-name">Your name</label><input id="l-name" type="text" autocomplete="name" placeholder="Your name" required/></div>
-        <div class="field"><label for="l-email">Email</label><input id="l-email" type="email" autocomplete="email" placeholder="you@email.com" required/></div>
+        <div class="field"><label for="l-name">Your name</label><input id="l-name" name="name" type="text" autocomplete="name" placeholder="Your name" required/></div>
+        <div class="field"><label for="l-email">Email</label><input id="l-email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required/></div>
       </div>
       <div class="frow">
-        <div class="field"><label for="l-role">Your role</label><input id="l-role" type="text" placeholder="Founder / CXO / …"/></div>
-        <div class="field"><label for="l-ref">Referred by (optional)</label><input id="l-ref" type="text" placeholder="A name helps"/></div>
+        <div class="field"><label for="l-role">Your role</label><input id="l-role" name="role" type="text" placeholder="Founder / CXO / …"/></div>
+        <div class="field"><label for="l-ref">Referred by (optional)</label><input id="l-ref" name="referred_by" type="text" placeholder="A name helps"/></div>
       </div>
-      <div class="frow"><div class="field full"><label for="l-msg">Where does the week get away from you?</label><textarea id="l-msg" placeholder="Calendar, travel, follow-through, all of it…"></textarea></div></div>
+      <div class="frow"><div class="field full"><label for="l-msg">Where does the week get away from you?</label><textarea id="l-msg" name="message" placeholder="Calendar, travel, follow-through, all of it…"></textarea></div></div>
       <button class="btn btn-dark" type="submit">Request a consultation</button>
-      <p class="form-note">Everything you share stays between us.</p>
+      <p class="form-note">Everything you share stays between us. Prefer email? <a href="mailto:comedyrecordingsmehak@gmail.com">comedyrecordingsmehak@gmail.com</a></p>
     </form>
   </div>
 </section>
@@ -184,7 +189,7 @@
       <a href="comedy.html">The Show</a><a href="lifestyle.html">The Manager</a>
       <a href="watch.html">Watch</a><a href="about.html">About</a><a href="#book">Book</a>
     </nav>
-    <small>© 2026 Mehak Madan · Bengaluru, India</small>
+    <small>© 2026 Mehak Madan · Bengaluru, India · <a href="mailto:comedyrecordingsmehak@gmail.com" style="color:inherit">comedyrecordingsmehak@gmail.com</a></small>
   </div>
 </footer>
 
