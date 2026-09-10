@@ -55,6 +55,11 @@ python3 -m http.server 8000   # → http://localhost:8000
 - **Accessibility:** skip links, labelled + autocompleted forms, ARIA tabs on
   the pivot, `aria-pressed` on rundown cards, keyboard support, focus rings,
   landmark elements.
+- **Cache-busting.** GitHub Pages caches every file for 10 minutes and allows no
+  custom headers, so pages load `site.css` / `site.js` with a content hash
+  (`?v=…`). **After editing either file, run `python3 _tools/stamp-assets.py`
+  before committing** — otherwise browsers keep the old styles.
+  `--check` exits non-zero if any reference is stale.
 
 ## Still to wire for production
 
