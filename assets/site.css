@@ -4,23 +4,23 @@
 @font-face{font-family:'Albert Sans';font-style:italic;font-weight:400 500;font-display:swap;
   src:url(fonts/albert-sans-italic-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
 @font-face{font-family:'Albert Sans';font-style:italic;font-weight:400 500;font-display:swap;
-  src:url(fonts/albert-sans-italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  src:url(fonts/albert-sans-italic-latin.woff2) format('woff2');unicode-range:U+0020-007E,U+00A0,U+00A9,U+00B7,U+2013-2014,U+2018-2019,U+201C-201D,U+2022,U+2026,U+20AC,U+2122}
 @font-face{font-family:'Albert Sans';font-style:normal;font-weight:400 700;font-display:swap;
   src:url(fonts/albert-sans-normal-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
 @font-face{font-family:'Albert Sans';font-style:normal;font-weight:400 700;font-display:swap;
-  src:url(fonts/albert-sans-normal-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  src:url(fonts/albert-sans-normal-latin.woff2) format('woff2');unicode-range:U+0020-007E,U+00A0,U+00A9,U+00B7,U+2013-2014,U+2018-2019,U+201C-201D,U+2022,U+2026,U+20AC,U+2122}
 @font-face{font-family:'Archivo';font-style:normal;font-weight:500 700;font-display:swap;
   src:url(fonts/archivo-normal-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
 @font-face{font-family:'Archivo';font-style:normal;font-weight:500 700;font-display:swap;
-  src:url(fonts/archivo-normal-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  src:url(fonts/archivo-normal-latin.woff2) format('woff2');unicode-range:U+0020-007E,U+00A0,U+00A9,U+00B7,U+2013-2014,U+2018-2019,U+201C-201D,U+2022,U+2026,U+20AC,U+2122}
 @font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;
   src:url(fonts/instrument-serif-italic-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
 @font-face{font-family:'Instrument Serif';font-style:italic;font-weight:400;font-display:swap;
-  src:url(fonts/instrument-serif-italic-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  src:url(fonts/instrument-serif-italic-latin.woff2) format('woff2');unicode-range:U+0020-007E,U+00A0,U+00A9,U+00B7,U+2013-2014,U+2018-2019,U+201C-201D,U+2022,U+2026,U+20AC,U+2122}
 @font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;
   src:url(fonts/instrument-serif-normal-latin-ext.woff2) format('woff2');unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF}
 @font-face{font-family:'Instrument Serif';font-style:normal;font-weight:400;font-display:swap;
-  src:url(fonts/instrument-serif-normal-latin.woff2) format('woff2');unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD}
+  src:url(fonts/instrument-serif-normal-latin.woff2) format('woff2');unicode-range:U+0020-007E,U+00A0,U+00A9,U+00B7,U+2013-2014,U+2018-2019,U+201C-201D,U+2022,U+2026,U+20AC,U+2122}
 
 /* ============================================================
    Mehak Madan — "Warm Editorial Playbill · Spotlight"
@@ -118,7 +118,11 @@ a:hover{color:var(--accent)}
 
 /* ---------- header / nav (shared) ---------- */
 header.site{position:sticky;top:0;z-index:80;background:rgba(250,245,238,.82);
-  backdrop-filter:blur(14px) saturate(1.2);border-bottom:1px solid var(--line)}
+  backdrop-filter:blur(14px) saturate(1.2);border-bottom:1px solid var(--line);
+  /* backdrop-filter makes this header the containing block of the phone nav drawer, which parks at
+     translateX(100%) — past the header's right edge. Clip that sideways overhang so it can't widen the
+     page (it let every page be dragged ~300px sideways); y stays visible so the open drawer is full height. */
+  overflow-x:clip}
 .nav{display:flex;align-items:center;justify-content:space-between;
   padding:16px 32px;max-width:var(--wrap);margin:0 auto}
 .brand{font-family:var(--serif);font-size:24px;color:var(--ink);letter-spacing:-.01em;line-height:1}
@@ -630,6 +634,13 @@ html.js .hero-photo img{animation:slowSettle 1.6s var(--ease) both}
 .wordmarks .mk{font-family:var(--mono);font-weight:600;font-size:17px;letter-spacing:.1em;text-transform:uppercase;color:#8d7c66}
 .wordmarks .sep{color:var(--accent);opacity:.55}
 
+/* two-column content splits (index "The corporate set", comedy "The set" / "The material").
+   These used to be inline styles, which no media query can override, so they never stacked on phones. */
+.cols-topics,.cols-set{display:grid;gap:clamp(40px,5vw,64px)}
+.cols-topics{grid-template-columns:.8fr 1.2fr;align-items:start}
+.cols-set{grid-template-columns:.95fr 1.05fr;align-items:center}
+@media (max-width:900px){.cols-topics,.cols-set{grid-template-columns:1fr;gap:32px}}
+
 @media (max-width:900px){
   .ph-grid,.rundown-grid,.watch-teaser{grid-template-columns:1fr}
   .format-grid{grid-template-columns:1fr}
@@ -657,8 +668,8 @@ html.js .hero-photo img{animation:slowSettle 1.6s var(--ease) both}
   .nav-links{position:fixed;top:0;right:0;height:100vh;height:100dvh;width:min(80vw,320px);
     flex-direction:column;align-items:flex-start;gap:8px;background:var(--bg);padding:96px 28px 40px;
     box-shadow:-30px 0 60px -30px rgba(36,29,22,.5);
-    transform:translateX(100%);transition:transform .4s var(--ease);z-index:90}
-  .nav-links.open{transform:translateX(0)}
+    transform:translateX(100%);transition:transform .4s var(--ease),visibility 0s .4s;visibility:hidden;z-index:90}
+  .nav-links.open{transform:translateX(0);visibility:visible;transition:transform .4s var(--ease)}  /* closed drawer: out of tab order once it has slid away */
   .nav-links a{font-size:18px;padding:8px 0}
   .nav-links .btn{margin-top:10px}
   .nav-toggle{display:inline-flex;z-index:95}
@@ -693,4 +704,5 @@ html.js .hero-photo img{animation:slowSettle 1.6s var(--ease) both}
 .keyfacts>div{display:grid;grid-template-columns:150px 1fr;gap:20px;padding:14px 4px;border-bottom:1px solid var(--line)}
 .keyfacts dt{font-family:var(--mono);font-size:11.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
 .keyfacts dd{font-size:16px;color:var(--ink)}
-@media (max-width:600px){.keyfacts>div{grid-template-columns:1fr;gap:2px}}
+@media (max-width:600px){.keyfacts>div{grid-template-columns:1fr;gap:2px}
+  .venue-marks span{white-space:normal}}  /* "GUFTAGOO COMEDY CLUB" in tracked caps is 359px; let long names wrap on small phones */

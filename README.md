@@ -60,6 +60,16 @@ python3 -m http.server 8000   # → http://localhost:8000
   (`?v=…`). **After editing either file, run `python3 _tools/stamp-assets.py`
   before committing** — otherwise browsers keep the old styles.
   `--check` exits non-zero if any reference is stale.
+- **Images** are served as AVIF → WebP → JPEG via `<picture>`, in phone and desktop
+  sizes, plus crops cut to the exact box each photo is shown in (phone hero, video
+  thumbnails, video poster). All variants are generated from the originals in
+  `../highrespics`: after adding or replacing a photo run
+  `python3 _tools/build-images.py`. The `pNN.jpg` files are the fallback and the
+  social-preview image; keep them.
+- **Fonts** are self-hosted and trimmed to the characters the site uses (full
+  files live in `_tools/fonts-src/`). **After changing page copy, run
+  `python3 _tools/subset-fonts.py --check`**; if it reports missing characters, run
+  it without `--check`, then `stamp-assets.py`.
 
 ## Still to wire for production
 
