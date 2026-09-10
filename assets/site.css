@@ -35,7 +35,7 @@
   --paper-edge:#e2d7c4;
   --ink:#241d16;
   --ink-soft:#6b5d4d;
-  --ink-faint:#9a8b76;
+  --ink-faint:#7b6d5b;
 
   /* stage (dark) */
   --panel:#221a12;
@@ -179,7 +179,7 @@ footer.site{background:var(--panel);color:var(--stage-ink);position:relative;ove
 .foot-nav{display:flex;gap:22px;flex-wrap:wrap;font-size:13.5px}
 .foot-nav a{color:#b9a88f}
 .foot-nav a:hover{color:var(--marigold)}
-.foot-in small{color:#8d7c66;font-size:12.5px}
+.foot-in small{color:#9c8a73;font-size:12.5px}
 footer.site .spot-field::before{--spot-soft:rgba(230,180,92,.10)}
 
 /* ---------- proof strip (uniform wordmarks) ---------- */
@@ -224,7 +224,7 @@ footer.site .spot-field::before{--spot-soft:rgba(230,180,92,.10)}
 .pill{align-self:flex-start;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.18em;
   text-transform:uppercase;padding:8px 15px;border-radius:999px;margin-bottom:20px}
 .ocard.stage .pill{background:rgba(230,180,92,.16);color:var(--marigold)}
-.ocard.life .pill{background:var(--accent);color:#fff8f2}
+.ocard.life .pill{background:#8f4328;color:#fff8f2}  /* deeper than --accent-deep: this card is shown at .9 opacity when not selected, and must still clear 4.5:1 */
 .ocard h3{font-size:var(--fs-h3);margin-bottom:12px}
 .ocard.stage h3 em{color:var(--marigold)}
 .ocard.life h3 em{color:var(--accent)}
@@ -416,7 +416,7 @@ html.js .hero-photo img{animation:slowSettle 1.6s var(--ease) both}
 .ctrack .mk:hover{color:#fff}
 .ctrack .sep{color:var(--marigold);opacity:.7;flex:none}
 .clients .note{text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.04em;
-  color:rgba(250,245,238,.42);margin-top:24px;text-transform:uppercase}
+  color:rgba(250,245,238,.54);margin-top:24px;text-transform:uppercase}
 @media (prefers-reduced-motion:reduce){.ctrack{animation:none;flex-wrap:wrap;white-space:normal;justify-content:center}}
 
 /* ============================================================
@@ -428,7 +428,7 @@ html.js .hero-photo img{animation:slowSettle 1.6s var(--ease) both}
 .pivot-tabs button{font-family:var(--mono);font-size:13px;font-weight:600;letter-spacing:.06em;
   text-transform:uppercase;padding:11px 24px;border-radius:999px;border:0;background:transparent;
   color:var(--ink-soft);cursor:pointer;transition:color .25s}
-.pivot-tabs button[aria-selected="true"]{background:var(--accent);color:#fff8f2}
+.pivot-tabs button[aria-selected="true"]{background:var(--accent-deep);color:#fff8f2}
 .pivot-stage{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:22px}
 .pivot-beam{position:absolute;top:-6%;bottom:-6%;left:0;width:50%;z-index:0;pointer-events:none;
   transition:transform .55s var(--ease);
@@ -559,7 +559,7 @@ html.js .hero-photo img{animation:slowSettle 1.6s var(--ease) both}
   transition:border-color .25s,transform .25s var(--ease),box-shadow .25s;display:flex;flex-direction:column;gap:7px}
 .format-card:hover{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 16px 34px -22px rgba(36,29,22,.5)}
 .format-card .n{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--accent)}
-.format-card h4{font-family:var(--serif);font-weight:400;font-size:21px;color:var(--ink);letter-spacing:-.01em}
+.format-card .fc-title{display:block;font-family:var(--serif);font-weight:400;font-size:21px;line-height:1.04;color:var(--ink);letter-spacing:-.01em}
 .format-card p{font-size:14px;color:var(--ink-soft);line-height:1.5}
 .format-card .add{margin-top:6px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;
   text-transform:uppercase;color:var(--accent-deep);display:inline-flex;align-items:center;gap:6px}
