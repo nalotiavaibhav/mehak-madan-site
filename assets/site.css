@@ -112,7 +112,7 @@ a:hover{color:var(--accent)}
 .btn-line{background:transparent;color:var(--accent-deep);border-color:var(--accent)}
 .btn-line:hover{background:rgba(193,97,63,.08);color:var(--accent-deep);transform:translateY(-2px)}
 .btn-gold{background:var(--marigold);color:#241d16;box-shadow:0 8px 22px -12px rgba(198,138,46,.9)}
-.btn-gold:hover{background:#f0c470;transform:translateY(-2px);box-shadow:0 16px 34px -14px rgba(198,138,46,.9)}
+.btn-gold:hover{background:#f0c470;color:#241d16;transform:translateY(-2px);box-shadow:0 16px 34px -14px rgba(198,138,46,.9)}
 .btn-ghost{background:transparent;border-color:rgba(255,255,255,.28);color:var(--stage-ink)}
 .btn-ghost:hover{border-color:var(--marigold);color:#fff;transform:translateY(-2px)}
 
@@ -303,8 +303,6 @@ footer.site .spot-field::before{--spot-soft:rgba(230,180,92,.10)}
   border:1px solid var(--line);transition:border-color .25s,color .25s,background .25s}
 .share-sec:hover{border-color:var(--accent);color:var(--ink)}
 .share-sec svg{width:13px;height:13px;fill:currentColor}
-.stage .share-sec,.booking .share-sec{color:#b8a98f;border-color:rgba(255,255,255,.18)}
-.stage .share-sec:hover,.booking .share-sec:hover{color:#f8f2e8;border-color:var(--marigold)}
 
 .toast{position:fixed;left:50%;bottom:26px;z-index:200;transform:translateX(-50%) translateY(14px);
   opacity:0;pointer-events:none;transition:opacity .3s,transform .3s var(--ease);
@@ -562,13 +560,13 @@ html.js .hero-photo img{animation:slowSettle 1.6s var(--ease) both}
   border-radius:16px;padding:22px 22px 20px;cursor:pointer;font-family:var(--sans);
   transition:border-color .25s,transform .25s var(--ease),box-shadow .25s;display:flex;flex-direction:column;gap:7px}
 .format-card:hover{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 16px 34px -22px rgba(36,29,22,.5)}
-.format-card .n{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--accent)}
+.format-card .n{font-family:var(--serif);font-style:italic;font-size:16px;color:var(--accent-deep)}
 .format-card .fc-title{display:block;font-family:var(--serif);font-weight:400;font-size:21px;line-height:1.04;color:var(--ink);letter-spacing:-.01em}
 .format-card p{font-size:14px;color:var(--ink-soft);line-height:1.5}
 .format-card .add{margin-top:6px;font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.1em;
   text-transform:uppercase;color:var(--accent-deep);display:inline-flex;align-items:center;gap:6px}
 .format-card.on{border-color:var(--accent);background:#fffaf6}
-.format-card.on .add{color:var(--accent)}
+.format-card.on .add{color:var(--accent-deep)}
 .format-card.on .add::before{content:"✳"}
 .rail{position:sticky;top:88px;background:var(--panel-2);color:var(--stage-ink);border-radius:18px;padding:26px 24px}
 .rail h3{font-size:22px;color:#f8f2e8;margin-bottom:4px}
@@ -599,7 +597,7 @@ html.js .hero-photo img{animation:slowSettle 1.6s var(--ease) both}
 .svc-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:32px 30px;
   transition:border-color .3s,transform .3s var(--ease),box-shadow .3s}
 .svc-card:hover{transform:translateY(-3px);border-color:var(--line-2);box-shadow:0 24px 50px -34px rgba(36,29,22,.5)}
-.svc-card .idx{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--accent);display:block;margin-bottom:8px}
+.svc-card .idx{font-family:var(--serif);font-style:italic;font-size:20px;color:var(--accent-deep);display:block;margin-bottom:8px}
 .svc-card h3{font-size:24px;margin-bottom:12px}
 .svc-card ul{list-style:none;display:flex;flex-direction:column;gap:9px;font-size:15px;color:var(--ink-soft)}
 .svc-card ul li{display:flex;gap:10px;align-items:baseline}
@@ -632,7 +630,7 @@ html.js .hero-photo img{animation:slowSettle 1.6s var(--ease) both}
 /* wordmark strip (light) */
 .wordmarks{display:flex;flex-wrap:wrap;gap:12px 22px;align-items:center;justify-content:center}
 .wordmarks .mk{font-family:var(--mono);font-weight:600;font-size:17px;letter-spacing:.1em;text-transform:uppercase;color:#8d7c66}
-.wordmarks .sep{color:var(--accent);opacity:.55}
+.wordmarks .sep{color:var(--accent-deep);opacity:.9}
 
 /* two-column content splits (index "The corporate set", comedy "The set" / "The material").
    These used to be inline styles, which no media query can override, so they never stacked on phones. */
