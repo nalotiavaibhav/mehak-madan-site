@@ -695,7 +695,7 @@ html.js .hero-photo img{animation:slowSettle 1.6s var(--ease) both}
 /* GEO quotable lead sentence in the dark clients strip */
 .clients-lead{max-width:820px;margin:26px auto 0;padding:0 20px;text-align:center;
   color:rgba(250,245,238,.82);font-size:16px;line-height:1.7}
-.clients-lead b{color:#f8f2e8;font-weight:400;font-family:var(--serif);font-size:19px}
+.clients-lead b{color:#f8f2e8;font-weight:500}
 
 /* About "key facts" — dual-purpose human skim + machine-readable entity block */
 .keyfacts{margin-top:40px;border-top:1px solid var(--line)}
