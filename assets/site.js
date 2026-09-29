@@ -9,7 +9,7 @@
      then this block does nothing at all: no script is fetched, no cookie is set,
      no request leaves the browser, and every track() call below is a no-op.
 
-       key  — PostHog › Settings › Project › "Project API key" (starts phc_)
+       key  — PostHog > Settings > Project > "Project API key" (starts phc_)
        host — US project: https://us.i.posthog.com   EU project: https://eu.i.posthog.com
               (must match the region chosen at signup, or events silently vanish)
 
