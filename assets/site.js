@@ -21,7 +21,7 @@
      reason (the forms collect contact details and the lifestyle page promises
      discretion); turning it on would capture form fields. */
   var ANALYTICS = {
-    key: '',                               // 'phc_...'  <- paste here
+    key: 'phc_yEv3qxXHTUXxQxpQkbEw8GTbMaWKZFyAWuxzKHYRskVM',                               // 'phc_...'  <- paste here
     host: 'https://eu.i.posthog.com'       // EU Cloud (project 284665). US Cloud would be https://us.i.posthog.com
   };
 
